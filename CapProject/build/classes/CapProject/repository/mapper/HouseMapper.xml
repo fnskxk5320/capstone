@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CapProject.repository.mapper.HouseMapper">
+<insert id="insertHouse" parameterType="House">
+	INSERT INTO HOUSE(HOUSEID,HOUSENAME,TEMPERATURE,NATRIUM,PHOSPHORUS,KALIUM,OPENERORDER,USERID)
+	VALUES(#{houseId},#{houseName},#{temperature},#{natrium},#{phosphorus},#{kalium},#{openerOrder},#{userId},#{settedTemperature})
+</insert>
+<select id="getHouseNames" parameterType="String" resultType="String">
+	SELECT HOUSENAME 
+	FROM HOUSE
+	WHERE USERID = #{userID}
+</select>
+<select id="getHouse" parameterType="House" resultType="House">
+	SELECT HOUSEID,HOUSENAME,TEMPERATURE,NATRIUM,PHOSPHORUS,KALIUM,OPENERORDER,USERID,SETTEDTEMPERATURE
+	FROM House
+	WHERE HOUSENAME = #{houseName} and USERID = #{userId}
+</select>
+<select id="getSettedTemperature" parameterType="String" resultType="String">
+	SELECT SETTEDTEMPERATURE 
+	FROM HOUSE
+	WHERE HOUSEID = #{houseId}
+</select>
+<select id="getHouseByHouseId" parameterType="String" resultType="House">
+	SELECT HOUSEID,HOUSENAME,TEMPERATURE,NATRIUM,PHOSPHORUS,KALIUM,OPENERORDER,USERID,SETTEDTEMPERATURE 
+	FROM House
+	WHERE HOUSEID = #{houseId}
+</select>
+<select id="getOrder" parameterType="String">
+	SELECT OPENERORDER
+	FROM HOUSE
+	WHERE HOUSEID = #{houseId}
+</select>
+<update	id="updateStatus" parameterType="House">
+	UPDATE HOUSE
+	SET TEMPERATURE = #{temperature},NATRIUM = #{natrium},PHOSPHORUS = #{phosphorus},KALIUM = #{kalium}
+	WHERE HOUSEID = #{houseId} 
+</update>
+<update	id="updateOrder" parameterType="House">
+	UPDATE HOUSE
+	SET OPENERORDER = #{openerOrder}
+	WHERE HOUSENAME = #{houseName} and USERID = #{userId}
+</update>
+<update	id="updateSettedTemperature" parameterType="House">
+	UPDATE HOUSE
+	SET SETTEDTEMPERATURE = #{settedTemperature}
+	WHERE HOUSENAME = #{houseName} and USERID = #{userId}
+</update>
+<update	id="updateHouseName" parameterType="UpdateHouse">
+	UPDATE HOUSE
+	SET HOUSENAME = #{updateHouseName}
+	WHERE HOUSENAME = #{houseName} and USERID = #{userId}
+</update>
+</mapper>

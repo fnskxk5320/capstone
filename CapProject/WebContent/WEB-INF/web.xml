@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>CapProject</display-name>
+  <welcome-file-list>
+    <welcome-file>loginForm.jsp</welcome-file>
+  </welcome-file-list>
+  <filter> 
+    <filter-name>LoginCheckFilter</filter-name>
+    <filter-class>CapProject.filter.LoginCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginCheckFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping> 
+  <servlet>
+    <servlet-name>ControllerServlet</servlet-name>
+    <servlet-class>CapProject.controller.ControllerServlet</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>/WEB-INF/commandHandler.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+</web-app>
