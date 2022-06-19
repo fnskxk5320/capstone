@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/returnlogin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기본 화면으로돌아가기" />
+    <TextView
+        android:id="@+id/showAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 설정 시간"
+        />
+    <Button
+    android:id="@+id/changeAlarmTime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="알림시간 변경" />
+    <Button
+        android:id="@+id/deleteAllData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="데이터 초기화" />
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원탈퇴" />
+
+
+</LinearLayout>
